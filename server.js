@@ -1,10 +1,7 @@
 require('dotenv').config();
-const express = require('express');
+const app = require('./app');
 const connectAtlasDB = require('./db/mongodb');
 const { appConfig, dbConfigProd } = require('./config');
-
-// Initialize Server
-const app = express();
 
 async function initApp(appConfig, dbConfig) {
   try {
