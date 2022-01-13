@@ -1,16 +1,16 @@
 require('dotenv').config();
 const express = require('express');
-const connectDb = require('./db/mongodb');
-const { appConfig, dbConfig } = require('./config');
+const connectAtlasDB = require('./db/mongodb');
+const { appConfig, dbConfigProd } = require('./config');
 
 // Initialize Server
 const app = express();
 
 async function initApp(appConfig, dbConfig) {
   try {
-    await connectDb(dbConfig);
+    await connectAtlasDB(dbConfig);
     app.listen(appConfig.port, () =>
-      console.log(`Server listen on port: ${appConfig.port}`)
+      console.log(`Server listen on port: http://localhost:${appConfig.port}`)
     );
   } catch (err) {
     console.error(err);
@@ -18,4 +18,4 @@ async function initApp(appConfig, dbConfig) {
   }
 }
 
-initApp(appConfig, dbConfig);
+initApp(appConfig, dbConfigProd);
