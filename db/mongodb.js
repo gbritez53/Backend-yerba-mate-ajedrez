@@ -22,4 +22,7 @@ async function connectAtlasDB({ username, password, cluster, dbName }) {
   });
 }
 
-module.exports = connectAtlasDB;
+module.exports = {
+  connectDB,
+  connectAtlasDB
+};

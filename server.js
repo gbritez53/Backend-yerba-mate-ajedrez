@@ -1,6 +1,6 @@
 require('dotenv').config();
 const app = require('./app');
-const connectAtlasDB = require('./db/mongodb');
+const { connectAtlasDB } = require('./db/mongodb');
 const { appConfig, dbConfigProd } = require('./config');
 
 async function initApp(appConfig, dbConfig) {
