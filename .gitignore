@@ -1,0 +1,15 @@
+# compiled output
+/dist
+/node_modules
+
+# OS
+.DS_Store
+npm-debug.log
+yarn-error.log
+
+
+# environment
+.env
+
+# build
+/dist

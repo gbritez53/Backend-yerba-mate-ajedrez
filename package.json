@@ -1,0 +1,7 @@
+{
+  "name": "backend-yerba-mate-ajedrez",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Gabriel Britez <gbritez53@gmail.com>",
+  "license": "MIT"
+}
