@@ -4,7 +4,7 @@ Este es el back-end del sistema de Yerba Mate Ajedrez.
 
 ## Contenido
 
-Back-End controlador de usuraio y notocias.
+Back-End controlador de productos.
 El proyecto esta realizado en:
 
 - [Node.js](https://nodejs.org/es/)
