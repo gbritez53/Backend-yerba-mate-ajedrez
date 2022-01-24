@@ -6,9 +6,10 @@ const { appConfig, dbConfigProd } = require('./config');
 async function initApp(appConfig, dbConfig) {
   try {
     await connectAtlasDB(dbConfig);
-    app.listen(appConfig.port, () =>
+    // app.listen(appConfig.port, () =>
+    app.listen(process.env.PORT, () =>
       // console.log(`Server listen on port: http://localhost:${appConfig.port}`)
-      console.log(`Server listen on port: ${dbConfigProd.cluster}.mongodb.net`)
+      console.log(`Server listen on port: ${process.env.PORT}`)
     );
   } catch (err) {
     console.error(err);
