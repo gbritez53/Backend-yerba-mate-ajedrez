@@ -1,0 +1,9 @@
+use('YerbaMateAjedrezCluster');
+
+db.products.insertOne({
+    name: 'Yerba Mate 3',
+    description: 'Yerba Mate Ajedrez 3',
+    unitaryPrice: '$53800.00',
+    size: "1",
+    createdAt: new Timestamp(),
+})
