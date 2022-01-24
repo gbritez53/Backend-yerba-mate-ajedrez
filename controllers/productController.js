@@ -2,11 +2,13 @@ const Product = require('../models/Product');
 
 const addProduct = async (req, res) => {
   try {
-    const { name, size, category, path, imgURL, description } = req.body;
+    const { name, size, category, categoryName, path, imgURL, description } =
+      req.body;
     const product = new Product({
       name,
       size,
       category,
+      categoryName,
       path,
       imgURL,
       description
