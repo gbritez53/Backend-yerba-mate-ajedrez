@@ -3,6 +3,7 @@ const fileupload = require('express-fileupload');
 
 const productRoutes = require('./routes/product.routes');
 const imagesRoutes = require('./routes/images.routes');
+const categoriesRoutes = require('./routes/category.routes');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(
 
 //Routes
 app.use('/v1', productRoutes);
+app.use('/v1', categoriesRoutes);
 app.use('/api/v1', imagesRoutes);
 
 module.exports = app;
