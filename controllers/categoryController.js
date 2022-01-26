@@ -19,7 +19,22 @@ const getCategories = async (req, res) => {
   res.status(200).send({ categories });
 };
 
-const getCategory = async (req, res) => {
+const getCategoryPath = async (req, res) => {
+  const { path } = req.params;
+  const category = await Category.findOne({ path: path });
+
+  try {
+    if (!category) {
+      res.status(404).send({ message: 'Category not found' });
+    } else {
+      res.status(200).send({ category });
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const getCategoryId = async (req, res) => {
   const { id } = req.params;
   const category = await Category.findOne({ _id: id });
 
@@ -68,7 +83,8 @@ const updateCategory = async (req, res) => {
 
 module.exports = {
   addCategory,
-  getCategory,
+  getCategoryPath,
+  getCategoryId,
   getCategories,
   deleteCategory,
   updateCategory
