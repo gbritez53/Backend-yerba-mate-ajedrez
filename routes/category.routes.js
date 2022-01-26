@@ -14,7 +14,7 @@ router
   .post('/categories', addCategory)
   .get('/categories/', getCategories)
   .get('/categories/:id', getCategoryId)
-  .get('/categories/:path', getCategoryPath)
+  .get('/categories/path', getCategoryPath)
   .delete('/categories/:id', deleteCategory)
   .put('/categories/:id', updateCategory);
 
