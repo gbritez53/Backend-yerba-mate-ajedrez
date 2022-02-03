@@ -10,7 +10,13 @@ const CategorySchema = new Schema(
     path: {
       type: String,
       trim: true
-    }
+    },
+    products: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'products'
+      }
+    ]
   },
   {
     timestamps: true

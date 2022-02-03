@@ -40,6 +40,21 @@ const getProduct = async (req, res) => {
   }
 };
 
+const getProductByPath = async (req, res) => {
+  const { path } = req.params;
+  const product = await Product.findOne({ path: path });
+
+  try {
+    if (!product) {
+      res.status(404).send({ message: 'Product not found' });
+    } else {
+      res.status(200).send({ product });
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 const deleteProduct = async (req, res) => {
   const { id } = req.params;
   const product = await Product.findOne({ _id: id });
@@ -75,6 +90,7 @@ const updateProduct = async (req, res) => {
 module.exports = {
   addProduct,
   getProduct,
+  getProductByPath,
   getProducts,
   deleteProduct,
   updateProduct

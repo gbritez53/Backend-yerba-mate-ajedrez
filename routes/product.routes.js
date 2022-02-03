@@ -2,6 +2,7 @@ const express = require('express');
 const {
   addProduct,
   getProduct,
+  getProductByPath,
   getProducts,
   updateProduct,
   deleteProduct
@@ -12,7 +13,8 @@ const router = express.Router();
 router
   .post('/products', addProduct)
   .get('/products', getProducts)
-  .get('/products/:id', getProduct)
+  .get('/products/id/:id', getProduct)
+  .get('/products/:path', getProductByPath)
   .delete('/products/:id', deleteProduct)
   .put('/products/:id', updateProduct);
 

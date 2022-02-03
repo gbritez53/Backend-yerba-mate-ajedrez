@@ -1,0 +1,37 @@
+use('yerbastore')
+
+db.categories.aggregate(
+    [
+        {
+            $match: {
+                path: "yerba-mate-ajedrez"
+                // _id: ObjectId("61f8a9cad1b2784ff81f2d2f")
+            }
+        },
+        {
+            $lookup: {
+              from: 'products',
+              localField: '_id',
+              foreignField: 'category',
+              as: 'productByCategory'
+            }
+        },
+        {
+
+            $unwind: "$productByCategory"
+        },
+        {
+            $project: {
+                name: 1,
+                productByCategory: {
+                    name: 1,
+                    size: 1,
+                    path: 1,
+                    imgURL: 1,
+                    description: 1
+                }
+            }
+        }
+      
+    ]
+).pretty()

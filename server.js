@@ -1,14 +1,24 @@
 require('dotenv').config();
 const app = require('./app');
-const { connectAtlasDB } = require('./db/mongodb');
-const { appConfig, dbConfigProd } = require('./config');
+const { connectDB, connectAtlasDB } = require('./db/mongodb');
+const { appConfig, dbConfig, dbConfigProd } = require('./config');
 
-async function initApp(appConfig, dbConfig) {
+// async function initApp(appConfig, dbConfig) {
+//   try {
+//     await connectDB(dbConfig);
+//     app.listen(appConfig.port, () =>
+//       console.log(`Server listen on port: http://localhost:${appConfig.port}`)
+//     );
+//   } catch (err) {
+//     console.error(err);
+//     process.exit(0);
+//   }
+// }
+
+async function initApp(dbConfigProd) {
   try {
-    await connectAtlasDB(dbConfig);
-    // app.listen(appConfig.port, () =>
+    await connectAtlasDB(dbConfigProd);
     app.listen(process.env.PORT, () =>
-      // console.log(`Server listen on port: http://localhost:${appConfig.port}`)
       console.log(`Server listen on port: ${process.env.PORT}`)
     );
   } catch (err) {
@@ -17,4 +27,6 @@ async function initApp(appConfig, dbConfig) {
   }
 }
 
-initApp(appConfig, dbConfigProd);
+initApp(dbConfigProd);
+
+// initApp(appConfig, dbConfig);

@@ -8,19 +8,22 @@ const ProductSchema = new Schema(
       required: true,
       trim: true
     },
-    category: {
+    categoryPath: {
       type: String,
       trim: true
     },
-    categoryName: {
-      type: String,
-      trim: true
+    category: {
+      type: mongoose.Types.ObjectId,
+      ref: 'categories'
     },
     size: {
       type: String,
       trim: true
     },
-    path: String,
+    path: {
+      type: String,
+      trim: true
+    },
     imgURL: {
       type: String,
       trim: true

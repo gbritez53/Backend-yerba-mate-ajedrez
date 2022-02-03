@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connection.on('connected', () => console.log('MongoDB is connected'));
+mongoose.connection.on('open', () => console.log('MongoDB is connected'));
 
 //for localhost
 async function connectDB({ host, port, dbName }) {
-  const URI = `mongodb+sr://${host}:${port}/${dbName}`;
+  const URI = `mongodb://${host}:${port}/${dbName}`;
 
   await mongoose.connect(URI, {
     useNewUrlParser: true,
@@ -23,6 +23,5 @@ async function connectAtlasDB({ username, password, cluster, dbName }) {
 }
 
 module.exports = {
-  connectDB,
   connectAtlasDB
 };
