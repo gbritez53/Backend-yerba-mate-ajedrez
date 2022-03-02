@@ -28,7 +28,15 @@ const ProductSchema = new Schema(
       type: String,
       trim: true
     },
+    contentImg: {
+      type: String,
+      trim: true
+    },
     description: {
+      type: String,
+      trim: true
+    },
+    content: {
       type: String,
       trim: true
     }
