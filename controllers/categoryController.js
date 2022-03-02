@@ -46,7 +46,8 @@ const getProducts = async (req, res) => {
           path: 1,
           size: 1,
           imgURL: 1,
-          description: 1
+          contentImg: 1,
+          content: 1
         }
       }
     }
